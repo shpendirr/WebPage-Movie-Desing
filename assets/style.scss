@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+$bg-color: #000;
+$font-color: #fff;
+$padding: 0px;
+$margin: 0px;
+$menu-div-color: #fff;
+$font-family: 'Playfair Display', serif;
+
+body{
+    padding: $padding;
+    margin: $margin;
+    background: $bg-color;
+}
+
+ .logo > img{
+     float: right;
+     padding: 10px;
+     margin: 10px 20px;
+     width: 200px !important;
+     
+ }
+.menu-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    
+  }
+
+
+  
+  .toggler{
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 60px;
+    height: 60px;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+
+  }
+  
+  .hamburger{
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hamburger>div{
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: $menu-div-color;
+    transition: .4s;
+  }
+  
+  .hamburger>div:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: $menu-div-color;
+    top: -10px;
+    left: 0;
+    transition: .4s;
+
+  }
+  
+  .hamburger>div:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: $menu-div-color;
+    top: 10px;
+    left: 0;
+    transition: .4s;
+
+  }
+  
+  .toggler:checked + .hamburger>div{
+    transform: rotate(135deg);
+  }
+  
+  .toggler:checked:hover + .hamburger>div{
+    transform: rotate(225deg);
+  }
+  
+  .toggler:checked + .hamburger>div:before, .toggler:checked + .hamburger>div:after{
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    transition: .6s;
+
+  }
+  
+  .menu > div{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-150%) translateY(-50%);
+      width: 1600px;
+      height: 1600px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: .6s;
+      background: rgba(255, 255, 255, 0.13);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2.9px);
+      -webkit-backdrop-filter: blur(2.9px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .menu > div > div{
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: .6s;
+  }
+  
+  .menu > div > div > ul > li{
+    list-style: none;
+  }
+  
+  .menu > div > div > ul > li > a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 550;
+    text-transform: uppercase;
+    margin: .5rem;
+    transition: .3s;
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+  
+  .menu > div > div > ul > li > a:hover{
+    color: red;
+  }
+  
+  .toggler:checked ~ .menu{
+    visibility: visible;
+  }
+  
+  .toggler:checked ~ .menu > div{
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .toggler:checked ~ .menu > div > div{
+    opacity: 1;
+  }
+
+   
+  .container {
+    background-color: #151515;
+    min-height: calc(100vh - 50px);
+    color: white;
+  }
+  
+  .content-container {
+    margin-left: 50px;
+  }
+  
+  .featured-content {
+    height: 50vh;
+    padding: 50px;
+  }
+  
+  .featured-title {
+    width: 200px;
+  }
+  
+  .featured-desc {
+    width: 500px;
+    color: lightgray;
+    margin: 30px 0;
+  }
+  
+  .featured-button {
+    background-color: #4dbf00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+  }
+  
+  .movie-list-container {
+    padding: 0 20px;
+  }
+  
+  .movie-list-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .movie-list {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+  }
+  
+  .movie-list-item {
+    margin-right: 30px;
+    position: relative;
+  }
+  
+  .movie-list-item:hover .movie-list-item-img {
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 0.5;
+  }
+  
+  .movie-list-item:hover .movie-list-item-title,
+  .movie-list-item:hover .movie-list-item-desc,
+  .movie-list-item:hover .movie-list-item-button {
+    opacity: 1;
+  }
+  
+  .movie-list-item-img {
+    transition: all 1s ease-in-out;
+    width: 270px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .movie-list-item-title {
+    padding: 0 10px;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.9px);
+    -webkit-backdrop-filter: blur(2.9px); background: rgba(255, 255, 255, 0.13);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2.9px);
+      -webkit-backdrop-filter: blur(2.9px);
+  }
+  
+  .movie-list-item-desc {
+    
+    padding: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    width: 230px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.9px);
+    -webkit-backdrop-filter: blur(2.9px);
+  }
+  
+  .movie-list-item-button {
+    padding: 10px;
+    background-color: #4dbf00;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+  }
+  
+  .arrow {
+    font-size: 120px;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    color: lightgray;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .container.active {
+    background-color: white;
+  }
+  
+  .movie-list-title.active {
+    color: rgb(255, 255, 255);
+  }
+  
+  
+  
+  
