@@ -258,6 +258,10 @@ body {
   opacity: 1;
 }
 
+.movie-list-title {
+  color: #fff;
+}
+
 .movie-list-item-img {
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
